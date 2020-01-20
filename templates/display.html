@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='{% static "/style.css" %}' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+        </thead>
+        <tbody>
+            {% for i in user %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.age}}</td>
+                <td><a href='/edit/{{i.id}}/'>edit</a></td>
+                <td><a href='/delete/{{i.id}}/'>DELETE</a></td>
+            </tr>
+            {% endfor %}
+
+
+            {% for i in img %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td><img src='{{i.img.url}}' /></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
